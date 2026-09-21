@@ -37,6 +37,12 @@ Visitors select iconic dance moves, perform them in front of their webcam, hold 
 
 ## 🚀 Getting Started
 
+### Publishing on GitHub Pages
+
+This Vite app must be built before GitHub Pages can serve it. In the repository's **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**. The workflow in `.github/workflows/deploy.yml` then runs `npm ci` and `npm run build` on every push to `main` and publishes `dist`.
+
+The site is hosted at `https://juliayxhuang.github.io/next-lvl-coding-introduce-yourself/`, so production builds use that repository path for scripts, styles, fonts, and images. Local development still uses `/`.
+
 ### Prerequisites
 - Node.js 18+ (tested on Node v24)
 - NPM 9+

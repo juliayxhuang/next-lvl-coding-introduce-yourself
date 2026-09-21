@@ -3,6 +3,7 @@ import { FunFact, DanceMove } from '../types';
 import { triggerConfetti } from '../utils/confetti';
 import { playUnlockSuccess, playClick } from '../services/audioEffects';
 import { WiggleBox } from './WiggleBox';
+import { publicAsset } from '../utils/publicAsset';
 
 interface RewardModalProps {
   fact: FunFact;
@@ -35,7 +36,7 @@ export const RewardModal: React.FC<RewardModalProps> = ({ fact, move, onNextMove
       </WiggleBox>
       <img
         key={fact.id}
-        src={{ dab: '/julia-dabbing.jpg', whip: '/julia-whipping.jpg', woah: '/julia-whoaing.jpg' }[move.id]}
+        src={publicAsset({ dab: 'julia-dabbing.jpg', whip: 'julia-whipping.jpg', woah: 'julia-whoaing.jpg' }[move.id])}
         alt=""
         className="reward-photo-flight"
       />

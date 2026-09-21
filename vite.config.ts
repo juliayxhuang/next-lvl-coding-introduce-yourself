@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: process.env.NODE_ENV === 'production' ? '/next-lvl-coding-introduce-yourself/' : '/',
   server: {
     port: 3000,
     open: false

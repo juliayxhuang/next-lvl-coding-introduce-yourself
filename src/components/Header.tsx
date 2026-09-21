@@ -1,5 +1,6 @@
 import React from 'react';
 import { playClick } from '../services/audioEffects';
+import { publicAsset } from '../utils/publicAsset';
 
 interface HeaderProps {
   unlockedCount: number;
@@ -22,10 +23,10 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="flex items-center gap-3 shrink-0">
         {onBack ? (
           <button onClick={onBack} className="wiggle-on-hover shrink-0 cursor-pointer" aria-label="Back to dance moves">
-            <img src="/back-button.png" alt="" className="w-11 h-11 object-contain" />
+            <img src={publicAsset('back-button.png')} alt="" className="w-11 h-11 object-contain" />
           </button>
         ) : (
-          <img src="/squiggle.png" alt="" className="w-11 h-11 object-contain shrink-0" />
+          <img src={publicAsset('squiggle.png')} alt="" className="w-11 h-11 object-contain shrink-0" />
         )}
         <h1 aria-label="Jiggle with Julia" className="text-[30pt] font-normal uppercase tracking-normal text-black whitespace-nowrap">
           <span className="jiggle-word">JI<button type="button" className="jiggle-g-button" onClick={() => { playClick(); onGoParty(); }} aria-label="Go to party page"><span className="jiggle-letter">G</span><span className="jiggle-letter">G</span></button>LE</span> WITH JULIA

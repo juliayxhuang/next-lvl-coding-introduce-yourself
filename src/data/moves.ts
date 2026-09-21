@@ -1,4 +1,5 @@
 import { DanceMove } from '../types';
+import { publicAsset } from '../utils/publicAsset';
 
 export const DANCE_MOVES: DanceMove[] = [
   {
@@ -17,7 +18,7 @@ export const DANCE_MOVES: DanceMove[] = [
     bgGradient: 'from-blue-600/20 via-indigo-600/10 to-transparent',
     accentColor: '#6366f1',
     svgIcon: 'dab',
-    illustrationSrc: '/dab.png'
+    illustrationSrc: publicAsset('dab.png')
   },
   {
     id: 'whip',
@@ -35,7 +36,7 @@ export const DANCE_MOVES: DanceMove[] = [
     bgGradient: 'from-emerald-600/20 via-teal-600/10 to-transparent',
     accentColor: '#10b981',
     svgIcon: 'whip',
-    illustrationSrc: '/whip.png'
+    illustrationSrc: publicAsset('whip.png')
   },
   {
     id: 'woah',
@@ -52,6 +53,6 @@ export const DANCE_MOVES: DanceMove[] = [
     bgGradient: 'from-purple-600/20 via-fuchsia-600/10 to-transparent',
     accentColor: '#d946ef',
     svgIcon: 'woah',
-    illustrationSrc: '/whoa.png'
+    illustrationSrc: publicAsset('whoa.png')
   }
 ];
