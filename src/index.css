@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Stefan';
+  src: url('/fonts/ABCStefanTrial-Simple.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: 'Stefan', system-ui, -apple-system, sans-serif;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.02em;
+}
+
+.jiggle-letter {
+  display: inline-block;
+  transform-origin: 50% 80%;
+}
+
+.jiggle-g-button {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.jiggle-word:hover .jiggle-letter {
+  animation: jiggle-letter 550ms ease-in-out infinite;
+}
+
+.jiggle-word:hover .jiggle-letter:nth-of-type(2) {
+  animation-delay: 110ms;
+}
+
+@keyframes jiggle-letter {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-0.12em) rotate(-9deg); }
+  50% { transform: translateY(0.04em) rotate(8deg); }
+  75% { transform: translateY(-0.06em) rotate(-5deg); }
+}
+
+.wiggle-on-hover {
+  transform-origin: center;
+}
+
+.wiggle-on-hover:hover {
+  animation: clickable-wiggle 550ms ease-in-out infinite;
+}
+
+@keyframes clickable-wiggle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-0.08em) rotate(-2deg); }
+  50% { transform: translateY(0.03em) rotate(2deg); }
+  75% { transform: translateY(-0.04em) rotate(-1deg); }
+}
+
+.party-color-wash {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+.party-light {
+  position: absolute;
+  width: 62%;
+  height: 85%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  filter: blur(10px);
+}
+
+.party-light-1 { top: -28%; left: -22%; }
+.party-light-2 { top: -22%; right: -20%; }
+.party-light-3 { bottom: -35%; left: 21%; }
+
+.party-light-1.is-playing { animation: disco-light-one 8s ease-in-out infinite alternate; }
+.party-light-2.is-playing { animation: disco-light-two 10s ease-in-out infinite alternate; }
+.party-light-3.is-playing { animation: disco-light-three 9s ease-in-out infinite alternate; }
+
+@keyframes disco-light-one { to { transform: translate(48%, 55%); } }
+@keyframes disco-light-two { to { transform: translate(-46%, 64%); } }
+@keyframes disco-light-three { to { transform: translate(15%, -60%); } }
+
+.party-color-wash.is-playing {
+  animation: party-color-drift 9s ease-in-out infinite alternate;
+}
+
+@keyframes party-color-drift {
+  from { transform: translateX(-10%) rotate(-8deg); opacity: 0.45; }
+  to { transform: translateX(10%) rotate(8deg); opacity: 0.8; }
+}
+
+.reward-photo-flight {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: min(34vw, 420px);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 40;
+  animation: reward-photo-cross 5s linear forwards;
+}
+
+@keyframes reward-photo-cross {
+  0% { transform: translate(100vw, -50%); }
+  100% { transform: translate(-100vw, -50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jiggle-word:hover .jiggle-letter {
+    animation: none;
+  }
+
+  .wiggle-on-hover:hover {
+    animation: none;
+  }
+
+  .party-color-wash.is-playing {
+    animation: none;
+  }
+
+  .party-light.is-playing {
+    animation: none;
+  }
+
+  .reward-photo-flight {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Custom hand-drawn card style */
+.sketch-card {
+  border: 2px solid #000000;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+}
